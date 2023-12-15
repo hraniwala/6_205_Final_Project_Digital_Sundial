@@ -1,0 +1,124 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
+| Date         : Fri Dec 15 02:05:14 2023
+| Host         : worker running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_timing -file obj/post_route_timing.rpt
+| Design       : top_level
+| Device       : 7s50-csga324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -0.487ns  (required time - arrival time)
+  Source:                 dc/alarm2_reg[4]/C
+                            (rising edge-triggered cell FDSE clocked by clk_pixel_clk_wiz_0  {rise@0.000ns fall@6.734ns period=13.468ns})
+  Destination:            alarm3_number/num3/BRAM_reg/ADDRBWRADDR[14]
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_pixel_clk_wiz_0  {rise@0.000ns fall@6.734ns period=13.468ns})
+  Path Group:             clk_pixel_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            13.468ns  (clk_pixel_clk_wiz_0 rise@13.468ns - clk_pixel_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        13.045ns  (logic 5.941ns (45.543%)  route 7.104ns (54.457%))
+  Logic Levels:           18  (CARRY4=10 LUT2=4 LUT3=1 LUT5=1 LUT6=2)
+  Clock Path Skew:        -0.001ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.527ns = ( 11.941 - 13.468 ) 
+    Source Clock Delay      (SCD):    -0.964ns
+    Clock Pessimism Removal (CPR):    0.562ns
+  Clock Uncertainty:      0.168ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.329ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_pixel_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    N15                                               0.000     0.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000     0.000    mhdmicw/clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  mhdmicw/clkin1_ibufg/O
+                         net (fo=1, routed)           1.233     2.673    mhdmicw/clk_ref_clk_wiz_0
+    MMCME2_ADV_X0Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -6.965    -4.291 r  mhdmicw/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.666    -2.625    mhdmicw/clk_pixel_clk_wiz_0
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096    -2.529 r  mhdmicw/clkout1_buf/O
+                         net (fo=4940, routed)        1.565    -0.964    dc/clk_pixel
+    SLICE_X29Y7          FDSE                                         r  dc/alarm2_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X29Y7          FDSE (Prop_fdse_C_Q)         0.456    -0.508 r  dc/alarm2_reg[4]/Q
+                         net (fo=19, routed)          0.698     0.191    dc/alarm2[4]
+    SLICE_X28Y8          LUT2 (Prop_lut2_I1_O)        0.124     0.315 r  dc/BRAM_reg_i_53__0/O
+                         net (fo=1, routed)           0.000     0.315    dc/BRAM_reg_i_53__0_n_0
+    SLICE_X28Y8          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     0.865 r  dc/BRAM_reg_i_48__0/CO[3]
+                         net (fo=1, routed)           0.000     0.865    dc/BRAM_reg_i_48__0_n_0
+    SLICE_X28Y9          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222     1.087 r  dc/BRAM_reg_i_47__0/O[0]
+                         net (fo=4, routed)           0.615     1.702    dc/BRAM_reg_i_47__0_n_7
+    SLICE_X29Y7          LUT2 (Prop_lut2_I1_O)        0.299     2.001 r  dc/BRAM_reg_i_40__3/O
+                         net (fo=1, routed)           0.000     2.001    dc/BRAM_reg_i_40__3_n_0
+    SLICE_X29Y7          CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     2.551 r  dc/BRAM_reg_i_23__0/CO[3]
+                         net (fo=1, routed)           0.000     2.551    dc/BRAM_reg_i_23__0_n_0
+    SLICE_X29Y8          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222     2.773 r  dc/BRAM_reg_i_22__0/O[0]
+                         net (fo=7, routed)           1.025     3.798    dc/BRAM_reg_i_22__0_n_7
+    SLICE_X34Y11         LUT6 (Prop_lut6_I0_O)        0.299     4.097 r  dc/BRAM_reg_i_13/O
+                         net (fo=5, routed)           0.605     4.701    dc/BRAM_reg_i_13_n_0
+    SLICE_X29Y10         LUT2 (Prop_lut2_I1_O)        0.124     4.825 r  dc/BRAM_reg_i_90__1/O
+                         net (fo=1, routed)           0.000     4.825    dc/BRAM_reg_i_90__1_n_0
+    SLICE_X29Y10         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     5.357 r  dc/BRAM_reg_i_67/CO[3]
+                         net (fo=1, routed)           0.000     5.357    dc/BRAM_reg_i_67_n_0
+    SLICE_X29Y11         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222     5.579 r  dc/BRAM_reg_i_66/O[0]
+                         net (fo=6, routed)           0.521     6.101    dc/alarm2_number/image_addr_13[9]
+    SLICE_X30Y11         LUT2 (Prop_lut2_I0_O)        0.299     6.400 r  dc/BRAM_reg_i_68/O
+                         net (fo=1, routed)           0.000     6.400    dc/BRAM_reg_i_68_n_0
+    SLICE_X30Y11         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.513     6.913 r  dc/BRAM_reg_i_46__0/CO[3]
+                         net (fo=12, routed)          1.477     8.390    dc/BRAM_reg_i_46__0_n_0
+    SLICE_X13Y10         LUT5 (Prop_lut5_I3_O)        0.124     8.514 r  dc/BRAM_reg_i_92/O
+                         net (fo=1, routed)           0.338     8.852    dc/BRAM_reg_i_92_n_0
+    SLICE_X15Y9          CARRY4 (Prop_carry4_DI[3]_CO[3])
+                                                      0.385     9.237 f  dc/BRAM_reg_i_69/CO[3]
+                         net (fo=2, routed)           0.736     9.973    dc/BRAM_reg_i_69_n_0
+    SLICE_X13Y10         LUT6 (Prop_lut6_I0_O)        0.124    10.097 r  dc/BRAM_reg_i_47/O
+                         net (fo=3, routed)           0.305    10.402    dc/BRAM_reg_i_47_n_0
+    SLICE_X15Y10         LUT3 (Prop_lut3_I1_O)        0.124    10.526 r  dc/BRAM_reg_i_26/O
+                         net (fo=1, routed)           0.000    10.526    mvg/BRAM_reg_3[0]
+    SLICE_X15Y10         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550    11.076 r  mvg/BRAM_reg_i_7/CO[3]
+                         net (fo=1, routed)           0.000    11.076    mvg/BRAM_reg_i_7_n_0
+    SLICE_X15Y11         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.222    11.298 r  mvg/BRAM_reg_i_6/O[0]
+                         net (fo=1, routed)           0.784    12.081    alarm3_number/num3/ADDRBWRADDR[9]
+    RAMB36_X0Y2          RAMB36E1                                     r  alarm3_number/num3/BRAM_reg/ADDRBWRADDR[14]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_pixel_clk_wiz_0 rise edge)
+                                                     13.468    13.468 r  
+    N15                                               0.000    13.468 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000    13.468    mhdmicw/clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.370    14.838 r  mhdmicw/clkin1_ibufg/O
+                         net (fo=1, routed)           1.162    16.000    mhdmicw/clk_ref_clk_wiz_0
+    MMCME2_ADV_X0Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -7.221     8.779 r  mhdmicw/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.587    10.366    mhdmicw/clk_pixel_clk_wiz_0
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.457 r  mhdmicw/clkout1_buf/O
+                         net (fo=4940, routed)        1.485    11.941    alarm3_number/num3/clk_pixel
+    RAMB36_X0Y2          RAMB36E1                                     r  alarm3_number/num3/BRAM_reg/CLKBWRCLK
+                         clock pessimism              0.562    12.504    
+                         clock uncertainty           -0.168    12.336    
+    RAMB36_X0Y2          RAMB36E1 (Setup_ramb36e1_CLKBWRCLK_ADDRBWRADDR[14])
+                                                     -0.741    11.595    alarm3_number/num3/BRAM_reg
+  -------------------------------------------------------------------
+                         required time                         11.595    
+                         arrival time                         -12.081    
+  -------------------------------------------------------------------
+                         slack                                 -0.487    
+
+
+
+
